@@ -20,10 +20,15 @@ jobs:
       - name: Install & Build
         run: >
           npm install -g hexo-cli
+          
           hexo init paddy-blog
+          
           cd paddy-blog
+          
           npm i
+          
           npm install hexo-renderer-ejs hexo-renderer-less --save
+          
           git clone https://github.com/renbaoshuo/hexo-theme-pure.git themes/pure
 
           # Restore last modified time
@@ -37,7 +42,3 @@ jobs:
         with:
           github_token: ${{ secrets.TOKEN }}
           publish_dir: ./public
-
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM }}
