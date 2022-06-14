@@ -37,12 +37,9 @@ jobs:
           --format="@%ct" "$path")" "$path"; done
 
           hexo g
-          
-          cd public
-          
-          pwd
+    
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: public
+          publish_dir: /home/runner/work/hexo-blog-in-actions/hexo-blog-in-actions/paddy-blog/public
